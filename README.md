@@ -15,7 +15,9 @@ Our campaigns are run on different (mobile) platforms such as Android and iOS. O
 
 ### Part 2: Authorization and roles
 
-Campaign managers should be able to manage campaigns and in particular add and remove platforms from them. However, they should not be able to configure the generally available list of platforms. Only admins are allowed to do that (e.g. they may want to add `Windows` to the generally available platforms). Devise and implement a suitable solution for handling of the two different user roles `admin` and `campaign manager`.
+Campaign managers should be able to manage campaigns and in particular add and remove platforms from them. However, they should not be able to configure the generally available list of platforms. Only admins are allowed to do that (e.g. they may want to add `Windows` to the generally available platforms).
+
+Devise and implement a suitable solution for handling of the two different user roles `admin` and `campaign manager`. Please create a new campaign manager `cm@example.com` with the password `password` and supply a migration/seed task for this user.
 
 ### Part 3: Audit trail for platform changes
 
@@ -23,4 +25,16 @@ We would like to track all changes to the platform settings for campaigns with a
 
 ### Wrapping up
 
-Once you are done with your implementation, send us a link. A bit of documentation about your implementation probably won't hurt either. Good luck!
+Once you are done with your implementation, send us a link. Make sure your solution works and includes all the necessary migrations.
+
+For testing we will perform the following steps:
+
+1. `git clone <your fork>`
+2. `bundle install`
+3. `rake db:migrate`
+4. `rake db:seed`
+5. `rails s`
+
+We should then be able to log in to the dashboard at `http://localhost:3000/admin` using either the `cm@example.com` or `admin@example.com` user.
+
+A bit of documentation about your implementation probably won't hurt either. Good luck!
