@@ -206,5 +206,12 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+  # == CanCan
+  #
+  # Using CanCan to check user-permissions for actions
+  #
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  config.cancan_ability_class = Ability
 
+  
 end
