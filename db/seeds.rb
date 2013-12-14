@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+cm = AdminUser.create({:email => 'cm@example.com', :password => 'password', :password_confirmation => 'password', :role => 'cm'})
+admin = AdminUser.find_by_email('admin@example.com')
+admin.role = 'admin'
+admin.save
+Platform.create({:operating_system => 'IOS'})
+Platform.create({:operating_system => 'Android'})
+
