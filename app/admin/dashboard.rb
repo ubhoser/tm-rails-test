@@ -8,7 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Campaign History" do
           ul do
             CampaignHistory.order("created_at desc").limit(5).map do |campaign_history|
-              li campaign_history.campaign.name + ' (' + campaign_history.admin_user.email + ')'
+              li campaign_history.campaign.name + ' (' + campaign_history.admin_user.email + ')' if campaign_history.campaign
             end
           end
         end
