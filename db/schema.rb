@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20131215093640) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "campaign_histories", :force => true do |t|
-    t.integer  "integer"
     t.integer  "budget"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
