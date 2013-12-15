@@ -4,15 +4,20 @@ ActiveAdmin.register_page "Dashboard" do
 
   content :title => proc{ I18n.t("active_admin.dashboard") } do
     columns do
+
       column do
         panel "Campaign History" do
-          ul do
-            CampaignHistory.order("created_at desc").limit(5).map do |campaign_history|
-              li campaign_history.campaign.name + ' (' + campaign_history.admin_user.email + ')' if campaign_history.campaign
-            end
+          table_for CampaignHistory.order("created_at desc").limit(5) do
+            column("Name") { |campaign_history| campaign_history.campaign_name }
+            column("User") { |campaign_history| campaign_history.admin_user_email }
+            column("Date") { |campaign_history| l campaign_history.created_at, :format => :with_weekday }
+            column("Budget") { |campaign_history| campaign_history.budget }
+            column("Action") { |campaign_history| campaign_history.action }
+            column("Platforms") { |campaign_history| campaign_history.message }
           end
         end
       end
+
     end
   end # content
 end

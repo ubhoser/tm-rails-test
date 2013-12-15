@@ -1,8 +1,5 @@
 class CampaignHistory < ActiveRecord::Base
 
-  belongs_to :campaign
-  belongs_to :admin_user
-
-  attr_accessible :campaign_id, :admin_user_id, :budget 
+  attr_accessible :campaign_name, :admin_user_email, :budget, :action, :message
 
 end

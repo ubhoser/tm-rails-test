@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131214131716) do
+ActiveRecord::Schema.define(:version => 20131215093640) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -48,11 +48,14 @@ ActiveRecord::Schema.define(:version => 20131214131716) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "campaign_histories", :force => true do |t|
-    t.integer  "admin_user_id"
-    t.integer  "campaign_id"
+    t.integer  "integer"
     t.integer  "budget"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "campaign_name"
+    t.string   "admin_user_email"
+    t.string   "action"
+    t.string   "message"
   end
 
   create_table "campaigns", :force => true do |t|
